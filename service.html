@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Spa trial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Social media library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href='https://fonts.googleapis.com/css?family=Cormorant Garamond' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Hind Siliguri' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Prata' rel='stylesheet'>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body, html{
+  font-family: Hind Siliguri;
+  font-size: 16px;
+  margin: 0;
+  width: 100%;
+  padding: 0;
+}
+h1 {
+  font-family: Prata;
+  font-size: 40px;
+  color: #2F4858;
+}
+h2 {
+  font-family: Hind Siliguri;
+  font-size: 50px;
+  font-weight: bold;
+  color: #2F4858;
+}
+h3 {
+  font-family: Hind Siliguri;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+/* ------- custom my scroll -------*/  
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #121c23; 
+  }
+ 
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #2F4858; 
+    border-radius: 7px
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3C646B; 
+  }
+
+/* ----- Nav style ----- */
+  .navbar {
+    position: fixed;
+    transition: .7s;
+    padding: 0 20px;
+    border-radius: 0;
+    background: #2f4858;
+  }
+  .navbar-brand{
+    color: #fff;
+    font-size: 45px;
+    font-family: Germania;
+    cursor: pointer;    
+  }
+  .navbar-nav {
+    padding-left: 20px;
+    font-family: Hind Siliguri;
+    font-size: 14px;
+    color: white;    
+  }
+  .navbar-nav li{
+    padding: 5px 10px;
+  }
+  .navbar-nav a{
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .navbar-nav a:after{
+    content: '';
+    display: block;
+    border-bottom: 1px solid #fff;
+    transform: scaleX(0);
+    transition: .2s ease-in-out;
+  }
+  .navbar-nav a:hover:after{
+    transform: scaleX(1);
+  }
+
+/* ----- Button -----*/
+  .btnsolid{
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+    border: 0;
+    padding: 10px 30px;
+    background-color: #598177;
+    color: white;
+    transition: all .2s ease-in-out;
+    display: inline;
+    width: 250px;
+  }
+  .btnsolid:hover {
+    background-color: #2F4858;  
+  }
+  .btnbor {
+    margin: 0;
+    font-size: 16px;
+    border: 2px solid #598177;
+    background-color: transparent;
+    padding: 8px 30px;
+    transition: all .2s ease-in-out;
+    width: 250px;
+  }
+  .btnbor:hover {
+    background-color: #2F4858;
+    border: 2px solid #2F4858;
+  }
+
+/* ----- Footer ----- */
+  .footer {
+    margin: 0;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    color: white;
+    background-color: #121c23;
+    text-align: center;
+  }
+  .text {
+    padding-top: 20px;
+    font-size: 25px;
+  }
+  form.Subscribe {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  form.Subscribe input{
+    padding: 10px 20px;
+    font-family: Hind Siliguri;
+    font-size: 16px;
+    border: 0;
+    background-color: #b6cdb5;
+    color: #121c23;
+    width: 500px;
+  }
+  ::placeholder {
+    color: #121c23;
+    opacity: .6;
+  }
+
+/* ----- Social media button -----*/
+  .fa {
+    padding: 13px 0;
+    font-size: 24px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 4px;
+    transition: all 0.2s ease-in-out;
+    border-radius: 0px;
+  }
+  .fa:hover {
+    border-radius: 50%;
+    /*opacity: 0.7;*/
+    color: #fff;
+    text-decoration: none;
+  }
+  .fa-facebook {
+    background: #598177;
+    color: white;
+  }
+  .fa-facebook:hover {
+    background: #3B5998;
+  }
+  .fa-twitter {
+    background: #598177;
+    color: white;
+  }
+  .fa-twitter:hover {
+    background: #55ACEE;
+  }
+  .fa-youtube {
+    background: #598177;
+    color: white;
+  }
+  .fa-youtube:hover {
+    background: #bb0000;
+  }
+  .fa-instagram {
+    background: #598177;
+    color: white;
+  }
+  .fa-instagram:hover {
+    background: #ffb8ae;
+  }
+
+/* ----- heading and advertising ----- */
+  .heading {
+    padding-top: 100px;
+    padding-bottom: 80px;
+    position: relative;
+    text-align: center;
+  }
+
+/* ----- service style ----- */  
+  .service {
+    padding-top: 0px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 80px;
+    display: flex;
+  }
+  .service:after {
+    content: "";
+    display: table;
+    clear: both; 
+  }
+  .column {
+    padding: 0 10px;
+    display: block;
+    float: left;
+    width: 50%;
+    margin-top: auto;
+  }  
+
+/* ----- Combo ----- */
+  .combo {
+    padding-left:  80px;
+    padding-right: 80px;
+    padding-top: 0;
+    padding-bottom: 60px;
+  }
+  .combo-col-left {
+    padding: 0 10px;
+    display: block;
+    float: left;
+    width: 75%;
+    margin-top: auto;
+  }
+  .combo-col-right {
+    padding: 0 10px;
+    display: block;
+    float: left;
+    width: 25%;
+    margin-top: auto;
+  }
+</style>
+</head>
+
+<body>
+<!-- NAVBAR -->
+  <nav class="navbar navbar-expand-sm navbar-dark fixed-top" id="navbar">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="index.html">
+      <img src="image\logo.png" style="width: 80px; padding-top:5px">
+    </a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html" >Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="service.html">Service</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="aboutus.html">About Us</a>
+      </li>
+    </ul>
+  </nav>
+  <script>
+      window.onscroll = function() {scrollFunction()};
+   
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      
+      document.getElementById("navbar").style.background = "#E8C9AB";
+    } else {
+     
+      document.getElementById("navbar").style.background = "#2f4858";
+    }
+  }
+  </script>
+
+<!-- Heading and advertising -->
+  <div class="heading">
+    <img src="image/logo-darkgreen.png" style="width: 300px; text-align: center; padding-bottom: 40px">
+    <img src="image/banner2.jpg" style="width: 100%; padding: 0 80px">
+  </div>
+
+<!-- Service 1 -->
+  <section>  
+    <div class="service">
+      <div class="column">
+        <h2 style="padding-bottom: 60px; top: 0px;">Hands</h2>
+        
+        <h3>NAKED MANICURE<br></h3>
+        file + buff, cuticle tidy, mini massage, moisturise + oil (no polish)<br>
+        20 MIN | £22<br><br>
+
+        <h3>SIGNATURE MANICURE<br></h3>
+        file + buff, cuticle tidy, mini massage, polish, moisturise + oil<br>
+        30 MIN | £27<br><br>
+
+        <h3>GEL MANICURE<br></h3>
+        file + buff, cuticle tidy, mini massage, gel, moisturise + oil<br>
+        45 MIN | £38 <br><br>
+
+        <h3>FREE FROM MANICURE <br></h3>
+        file + buff, cuticle tidy, mini massage, free from polish, organic moisturise oil <br>
+        30 MIN | £38 <br><br>
+
+        <h3>FREE FROM GEL MANICURE <br></h3>
+        file + buff, cuticle tidy, mini massage, free from gel, organic moisturise + oil <br>
+        45 MIN | £45<br><br>
+
+        <button class="btnsolid" style="width: 100%;">BOOK APPOINTMENT</button>
+        
+      </div>
+
+      <div class="column">
+        <img src="image/hand1.jpg" style="width:100%; ">
+      </div>    
+    </div>
+  </section>
+
+<!-- Service 2 -->
+  <section>  
+    <div class="service">
+      <div class="column">
+        <img src="image/foot.jpg" style="width:100%; ">
+      </div>    
+      <div class="column">
+        <h2 style="padding-bottom: 60px; top: 0px;">Feet</h2>
+        
+        <h3>NAKED MANICURE<br></h3>
+        file + buff, cuticle tidy, mini massage, moisturise + oil (no polish)<br>
+        20 MIN | £22<br><br>
+
+        <h3>SIGNATURE MANICURE<br></h3>
+        file + buff, cuticle tidy, mini massage, polish, moisturise + oil<br>
+        30 MIN | £27<br><br>
+
+        <h3>GEL MANICURE<br></h3>
+        file + buff, cuticle tidy, mini massage, gel, moisturise + oil<br>
+        45 MIN | £38 <br><br>
+
+        <h3>FREE FROM MANICURE <br></h3>
+        file + buff, cuticle tidy, mini massage, free from polish, organic moisturise oil <br>
+        30 MIN | £38 <br><br>
+
+        <h3>FREE FROM GEL MANICURE <br></h3>
+        file + buff, cuticle tidy, mini massage, free from gel, organic moisturise + oil <br>
+        45 MIN | £45<br><br>
+
+        <button class="btnsolid" style="width: 100%;">BOOK APPOINTMENT</button>      
+      </div>
+    </div>
+  </section>
+
+<!-- Service 3 -->
+  <section>  
+    <div class="service">
+      <div class="column">
+        <h2 style="padding-bottom: 60px; top: 0px;">Nail art</h2>
+        
+        <h3>CLEAN N SIMPLE (NAIL ART)</h3>
+        Dots  10 MIN | £10<br>
+        Lines, French, Moons  15 MIN | £15<br><br>
+
+        <h3>ALL OUT (NAIL ART)</h3>
+        Chrome, foil, tape (gel only)   15 MIN | £20<br>
+        Tortoiseshell, marble, animal print   20 MIN | £25<br>
+        Tie dye, Flames   25 MIN | £30<br>
+        Custom design 30MIN | £35<br>
+        Custom design - signature nails (two nails max)  15 MIN | £17<br><br>
+
+        <button class="btnsolid" style="width: 100%;">BOOK APPOINTMENT</button>
+        
+      </div>
+
+      <div class="column">
+        <img src="image/nail.jpg" style="width:100%; ">
+      </div>    
+    </div>
+  </section>
+
+<!-- Service 4 -->
+  <section>
+    <div class="combo">
+      <h2>A LA CARTE</h2>
+      <img src="image/landing4.jpg" style="width:100%">
+    </div>
+
+    <div class="service" style="padding-bottom: 160px">
+      <div class="combo-col-left">
+        <h3>REHAB TREATMENT <br></h3>
+        If you’re ready to take a break from acrylics/gels & worried about the condition they’re in book our rehab treatment for step one of your transition back to healthy natural nails. Soak off (if needed),  file + buff, revitalising oil mask followed by our free from moisture treatment & either Kure top coat or high shine buff to finish<br>
+        75MIN | £48 <br><br>
+
+        <h3>FREE FROM MOISTURE TREATMENT (ADD ON ONLY)<br></h3>
+        Plant-based, petroleum-free alternative to paraffin wax. A rich blend of shea butter, soy, jojoba, organic coconut oil, vitamin E, and essential oils that moisturise and leaves the skin soft and supple<br> 
+        20 MIN | £18<br><br>
+
+        <h3>CALLUS TREATMENT <br></h3>
+        Perfect for cracked heels, Mavex CALLUSPEELING is free from: parabens, formaldehyde, added preservatives, mineral oil or paraffin. Formulated with a synergic complex of plant extracts from Swiss alpine herbs & plants such as Gentian, Blueberry, Spruce Fir & pure glacier water encapsulated in liposomes, leaving you with beautiful feet. Suitable for customers with diabetes CALLUSPEELING negates the use of blades or drills<br>
+        30 MIN | £38<br><br>
+
+        <h3>CALLUS TREATMENT (ADD ON ONLY)<br></h3>
+        Add Mavex CALLUSPEELING onto your pedicure treatment<br>
+        15 MIN | £22<br><Br>
+
+        <h3>RESTORE TREATMENT<br></h3>
+        Deeply penetrating treatment that strengthens the nail plate by filling in gaps & ridges while providing a protective shield to prevent nails from breaking. Using IBX enables your natural nail to grow longer while looking & feeling healthier (includes a NAKED MANICURE)<br>
+        35 MIN | £38<br><br>
+
+        <h3>RESTORE TREATMENT (ADD ON ONLY)<br></h3>
+        Add IBX to the base of your manicure treatment <br>
+        15 MIN | £22<br><br>
+
+        <h3>THE R+R<br></h3>
+        We’ve combined two of our most popular treatments to give your nails a full rejuvenation - The R+R is a hybrid of our REHAB and RESTORE! This new super treatment includes gel/acrylic removal, a naked manicure, IBX to penetrate and mend your nail beds, finishing with a warm essential oil & Shea butter mask (a petroleum free paraffin wax alternative) to hydrate your skin & hands!<br>
+        90 MIN | £70 <br><br>
+
+        <button class="btnsolid" style="width: 100%;">BOOK APPOINTMENT</button>
+      </div>
+      <div class="combo-col-right">
+        <img src="image/landing5.jpg" style="width:100%;">
+      </div>    
+    </div>
+  </section>
+
+<!-- FOOTER -->
+  <div class="footer">
+    <div class="text" style="padding-bottom: 60px; letter-spacing: 2px;">
+      <b>012-123-1234
+      <br><br>
+      Join our List</b>
+    </div>
+    
+    <p style="margin:0; padding:0">
+      Subscribe to our mailing list to receive updates and promotional offers
+    </p>
+    <form class="Subscribe" action="/action_page.php" style="margin:auto;">
+      <input type="e-mail" placeholder="Enter your mail..." name="mail">
+      <button type="submit" class="btnsolid" style="width: auto">Submit</button>
+    </form>
+    <div class="socialbtn" style="padding-bottom: 40px;">
+      <a href="https://www.facebook.com/" class="fa fa-facebook" target="_blank" rel="noopener noreferrer"></a>
+      <a href="https://twitter.com/home" class="fa fa-twitter" target="_blank" rel="noopener noreferrer"></a>
+      <a href="https://www.youtube.com/" class="fa fa-youtube" target="_blank" rel="noopener noreferrer"></a>
+      <a href="https://www.instagram.com/" class="fa fa-instagram" target="_blank" rel="noopener noreferrer"></a>
+    </div>
+    <p style="font-size: 14px; opacity: 0.5; padding-top: 40px;">Copyright 2019. All rights reserved</p>
+  </div>
+</body>
+</html>
